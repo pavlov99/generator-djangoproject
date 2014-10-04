@@ -11,4 +11,5 @@ Generator for Django project.
    :alt: NPM version
 
 .. code-block:: javascript
+   
     npm install -g generator-djangoproject
