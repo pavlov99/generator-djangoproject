@@ -1,0 +1,1 @@
+Generator for Django project.
