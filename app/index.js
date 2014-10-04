@@ -5,6 +5,8 @@ var util = require('util');
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 
+var foldername = path.basename(process.cwd());
+
 var DjangoprojectGenerator = yeoman.generators.Base.extend({
   initializing: function () {
     this.pkg = require('../package.json');
@@ -19,14 +21,13 @@ var DjangoprojectGenerator = yeoman.generators.Base.extend({
     ));
 
     var prompts = [{
-      type: 'confirm',
-      name: 'someOption',
-      message: 'Would you like to enable this option?',
-      default: true
+      name: 'projectName',
+      message: 'What is your project name?',
+      default: foldername
     }];
 
     this.prompt(prompts, function (props) {
-      this.someOption = props.someOption;
+      this.projectName = props.projectName;
 
       done();
     }.bind(this));
@@ -34,22 +35,21 @@ var DjangoprojectGenerator = yeoman.generators.Base.extend({
 
   writing: {
     app: function () {
-      this.dest.mkdir('app');
-      this.dest.mkdir('app/templates');
-
-      this.src.copy('_package.json', 'package.json');
-      this.src.copy('_bower.json', 'bower.json');
+      this.dest.mkdir(this.projectName);
     },
 
     projectfiles: function () {
-      this.src.copy('editorconfig', '.editorconfig');
-      this.src.copy('jshintrc', '.jshintrc');
+      this.template('manage.py', 'manage.py');
+      this.src.copy('Makefile', 'Makefile');
+      this.src.copy('pylama.ini', 'pylama.ini');
+      this.src.copy('requirements.txt', 'requirements.txt');
+      this.src.copy('project/__init__.py', path.join(this.projectName, '__init__.py'));
     }
-  },
-
-  end: function () {
-    this.installDependencies();
   }
+
+  //end: function () {
+    //this.installDependencies();
+  //}
 });
 
 module.exports = DjangoprojectGenerator;
