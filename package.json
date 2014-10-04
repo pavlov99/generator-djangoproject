@@ -1,7 +1,7 @@
 {
   "name": "generator-djangoproject",
-  "version": "0.0.0",
-  "description": "Yeoman generator for django project",
+  "version": "0.1.0",
+  "description": "Yeoman generator for Django project",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,8 +11,7 @@
     "url": "https://github.com/pavlov99/generator-djangoproject.git"
   },
   "keywords": [
-    "yeoman",
-    "generator",
+    "yeoman-generator",
     "django"
   ],
   "author": "Kirill Pavlov <kirill.pavlov@phystech.edu>",
@@ -20,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/pavlov99/generator-djangoproject/issues"
   },
-  "homepage": "https://github.com/pavlov99/generator-djangoproject"
+  "homepage": "https://github.com/pavlov99/generator-djangoproject",
+  "dependencies": {
+    "yeoman-generator": "^0.17.7"
+  }
 }
