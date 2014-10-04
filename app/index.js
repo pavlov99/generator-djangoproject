@@ -1,21 +1,55 @@
 'use strict';
 
+var path = require('path');
+var util = require('util');
 var yeoman = require('yeoman-generator');
+var yosay = require('yosay');
 
-module.exports = yeoman.generators.Base.extend({
-    method1: function () {
-        console.log('method 1 just ran');
+var DjangoprojectGenerator = yeoman.generators.Base.extend({
+  initializing: function () {
+    this.pkg = require('../package.json');
+  },
+
+  prompting: function () {
+    var done = this.async();
+
+    // Have Yeoman greet the user.
+    this.log(yosay(
+      'Welcome to the spectacular Djangoproject generator!'
+    ));
+
+    var prompts = [{
+      type: 'confirm',
+      name: 'someOption',
+      message: 'Would you like to enable this option?',
+      default: true
+    }];
+
+    this.prompt(prompts, function (props) {
+      this.someOption = props.someOption;
+
+      done();
+    }.bind(this));
+  },
+
+  writing: {
+    app: function () {
+      this.dest.mkdir('app');
+      this.dest.mkdir('app/templates');
+
+      this.src.copy('_package.json', 'package.json');
+      this.src.copy('_bower.json', 'bower.json');
     },
-    promptTask: function () {
-        var done = this.async();
-        this.prompt({
-            type    : 'input',
-            name    : 'name',
-            message : 'Your project name',
-            default : this.appname // Default to current folder name
-        }, function (answers) {
-            this.log(answers.name);
-            done();
-        }.bind(this));
+
+    projectfiles: function () {
+      this.src.copy('editorconfig', '.editorconfig');
+      this.src.copy('jshintrc', '.jshintrc');
     }
+  },
+
+  end: function () {
+    this.installDependencies();
+  }
 });
+
+module.exports = DjangoprojectGenerator;
