@@ -24,7 +24,14 @@ describe('djangoproject:app', function () {
         'pylama.ini',
         'requirements.txt',
 
-        'testproject/__init__.py'
+        'testproject/__init__.py',
+        'testproject/urls.py',
+        'testproject/wsgi.py',
+        
+        'testproject/settings/__init__.py',
+        'testproject/settings/core.py',
+        'testproject/settings/dev.py',
+        'testproject/settings/project.py',
     ]);
   });
 });
