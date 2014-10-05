@@ -59,6 +59,7 @@ var DjangoprojectGenerator = yeoman.generators.Base.extend({
     app: function () {
       this.dest.mkdir(this.projectName);
       this.dest.mkdir(path.join(this.projectName, 'settings'));
+      this.dest.mkdir(path.join(this.projectName, 'templates'));
       this.dest.mkdir(path.join(this.projectName, 'static'));
       this.dest.mkdir(path.join(this.projectName, 'media'));
     },

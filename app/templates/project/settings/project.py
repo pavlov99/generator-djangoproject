@@ -15,7 +15,7 @@ DATABASES = {
 }
 
 TEMPLATE_DIRS = (
-    os.path.join(PROJECT_ROOT, 'templates').replace('\\', '/'),
+    op.join(BASE_DIR, 'templates').replace('\\', '/'),
 )
 
 # Caches

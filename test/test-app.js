@@ -28,6 +28,7 @@ describe('djangoproject:app', function () {
         'testproject/urls.py',
         'testproject/wsgi.py',
 
+        'testproject/templates',
         'testproject/static',
         'testproject/media',
         
