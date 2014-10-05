@@ -1,14 +1,14 @@
-""" Immutable settings for <%= projectName %> project."""
+""" Immutable settings for <%= projectFullName %> project."""
 import logging
 from os import path as op
 
 BASE_DIR = op.abspath(op.dirname(op.dirname(__file__)))
-PROJECT_NAME = "<%= _.slugify(projectName) %>"
+PROJECT_NAME = "<%= projectName %>"
 ENVIRONMENT_NAME = "core"
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ')y_!@cf841=uij-7897$x@*b9=7#!85ik(0v95zjdy_kvt+fet'
+SECRET_KEY = '<%= secretKey %>'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -51,8 +51,8 @@ CACHES = {
     }
 }
 
-ROOT_URLCONF = '<%= _.slugify(projectName) %>.urls'
-WSGI_APPLICATION = '<%= _.slugify(projectName) %>.wsgi.application'
+ROOT_URLCONF = '<%= projectName %>.urls'
+WSGI_APPLICATION = '<%= projectName %>.wsgi.application'
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
 LANGUAGE_CODE = 'en-us'
