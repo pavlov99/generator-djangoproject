@@ -33,11 +33,11 @@ shell:
 
 .PHONY: static
 # target: static - Build and collect static
-static: $(UI_DIR)/node_modules
+static:
 	$(MANAGER) collectstatic --settings=$(DJANGO_SETTINGS) --noinput --clear
 
 .PHONY: db
 # target: db - Update database scheme
-db: $(ENV_DIR)
+db:
 	$(MANAGER) syncdb --noinput --settings=$(DJANGO_SETTINGS)
 	$(MANAGER) migrate --noinput --delete-ghost-migrations --settings=$(DJANGO_SETTINGS)
