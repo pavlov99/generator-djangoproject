@@ -13,3 +13,15 @@ DATABASES = {
         'PORT': '',
     }
 }
+
+TEMPLATE_DIRS = (
+    os.path.join(PROJECT_ROOT, 'templates').replace('\\', '/'),
+)
+
+# Caches
+CACHES['default']['KEY_PREFIX'] = '_'.join((PROJECT_NAME, ENVIRONMENT_NAME))
+
+# set header for https nginx redirect
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTOCOL', 'https')
+
+logging.info('Project settings loaded.')

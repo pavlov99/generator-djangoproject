@@ -1,4 +1,9 @@
-""" Immutable settings for <%= projectFullName %> project."""
+""" Immutable settings for <%= projectFullName %> project.
+
+Core settings configuration holds base, project independent Django settings.
+If you need specific config, such as database of cache, use project settings.
+
+"""
 import logging
 from os import path as op
 
@@ -71,4 +76,5 @@ logging.basicConfig(
     format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
     datefmt='%d.%m %H:%M:%S',
 )
-logging.info("{} settings loaded.".format(ENVIRONMENT_NAME.capitalize()))
+
+logging.info("Core settings loaded.")
