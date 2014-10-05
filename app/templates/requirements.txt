@@ -1,0 +1,8 @@
+Django
+
+# Development
+django-debug-toolbar
+django-extensions
+Werkzeug
+ipython
+ipdb

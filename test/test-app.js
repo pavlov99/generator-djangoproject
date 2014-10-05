@@ -12,7 +12,7 @@ describe('djangoproject:app', function () {
       .inDir(path.join(os.tmpdir(), './temp-test'))
       .withOptions({ 'skip-install': true })
       .withPrompt({
-        projectName: "testproject"
+        projectFullName: "testproject"
       })
       .on('end', done);
   });
@@ -27,6 +27,10 @@ describe('djangoproject:app', function () {
         'testproject/__init__.py',
         'testproject/urls.py',
         'testproject/wsgi.py',
+
+        'testproject/templates',
+        'testproject/static',
+        'testproject/media',
         
         'testproject/settings/__init__.py',
         'testproject/settings/core.py',
