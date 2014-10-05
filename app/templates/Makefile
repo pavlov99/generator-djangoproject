@@ -3,8 +3,8 @@ BIN=$(ENV)/bin
 PYTHON=$(shell which python)
 MANAGER=$(PYTHON) $(CURDIR)/manage.py
 
-MODULE=
-PORT=$(shell echo $${DEBUG_PORT:-8000})
+MODULE=<%= projectName %>
+PORT=8000
 
 DJANGO_SETTINGS=$(MODULE).settings.dev
 DJANGO_SETTINGS_PATH=$(CURDIR)/$(shell echo $(DJANGO_SETTINGS) | tr "." "/").py
